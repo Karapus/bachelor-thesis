@@ -1,11 +1,6 @@
-\documentclass[a4paper, 12pt]{book}
-
+\documentclass[a4paper, 14pt]{extreport}
 %% подключаем стандарт библиографии
 \bibliographystyle{gost71u} 
-
-%% for envirovemt "abstract" in class book
-\newenvironment{abstract}{}{}
-\usepackage{abstract}
 
 %% подключаем преамбулу, в ней содержатся подключение всех необходимых пакетов
 \input{include/preambule.tex}
@@ -30,7 +25,6 @@
     \nocite{*}
     \bibliography{references}
 
-    %% в зависимости от надобности подключаем раздел "Приложениие"
-    % \newpage
-    % \input{Appendix.tex}
+    \newpage
+    \input{parts/Appendix.tex}
 \end{document}

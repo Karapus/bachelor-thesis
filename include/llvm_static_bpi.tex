@@ -1,0 +1,21 @@
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Эвристика} & \textbf{Условие} & \textbf{\begin{tabular}[c]{@{}l@{}}Вероятность\\ истинности условия\end{tabular}} \\ \hline
+\multirow{2}{*}{Сравнение указателей}
+& \texttt{p1 == p2} & $0.375$ \\ \cline{2-3} 
+& \texttt{p1 != p2} & $0.625$ \\ \hline
+\multirow{8}{*}{Сравнение c константой}
+& \texttt{i == 0}           & \multirow{4}{*}{$0.375$} \\ \cline{2-2}
+& \texttt{i \textless 0}    &                          \\ \cline{2-2}
+& \texttt{i == -1}          &                          \\ \cline{2-2}
+& \texttt{i \textless{}= 0} &                          \\ \cline{2-3} 
+& \texttt{i != 0}              & \multirow{4}{*}{$0.625$} \\ \cline{2-2}
+& \texttt{i \textgreater 0}    &                          \\ \cline{2-2}
+& \texttt{i != -1}             &                          \\ \cline{2-2}
+& \texttt{i \textgreater{}= 0} &                          \\ \hline
+\multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}Сравнение чисел\\ с плавающей точкой\end{tabular}}
+& \texttt{f1 == f2}  & $0.375$       \\ \cline{2-3} 
+& \texttt{f1 != f2}  & $0.625$       \\ \cline{2-3} 
+& \texttt{!isnan(f)} & $1 - 2^{-20}$ \\ \cline{2-3} 
+& \texttt{isnan(f)}  & $2^{-20}$     \\ \hline
+\end{tabular}

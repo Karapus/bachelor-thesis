@@ -1,0 +1,21 @@
+digraph "Counterexample CFG" {
+
+    node [shape=record, style=filled]
+	entry;
+    loop_header[label="{loop.header}"];
+    loop_if[label="{loop.if|{<s0>T|<s1>F}}"];
+    loop_if_then[fillcolor=green, label="{loop.if.then}"];
+    loop_if_else[label="{loop.if.else}"];
+    loop_condition[label="{loop.condition|{<s0>T|<s1>F}}"];
+    if[fillcolor=red, label="{if|{<s0>T|<s1>F}}"];
+    if_then[fillcolor=green, label="{if.then}"];
+    if_else[label="{if.else}"];
+    exit;
+    entry->loop_header->loop_if;
+    loop_if:s0->loop_if_then->loop_condition;
+    loop_if:s1->loop_if_else->loop_condition;
+    loop_condition:s0->loop_header;
+    loop_condition:s1->if;
+    if:s0->if_then->exit;
+    if:s1->if_else->exit;
+}

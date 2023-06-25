@@ -1,0 +1,24 @@
+digraph S_regmatch {
+    ordering="out";
+    node [shape=record];
+    { rank = source; entry[color=darkgray]; }
+    s[label="{switch|{<s0>0|<s1>...|<s2>i|<s3>...|<s4>n}}", color=red];
+        c0[label="case 0"];
+        ca1[shape="none", label="..."];
+        ci[label="case i", color=red];
+        ca2[shape="none", label="..."];
+        cn[label="case n"];
+    { rank = sink; exit[color=darkgray]; }
+    entry->body;
+    c[label="{loop condition|{<s0>T|<s1>F}}"];
+    c:s0->body->s;
+    s:s0->c0;
+    s:s1->ca1;
+    s:s2->ci;
+    s:s3->ca2;
+    s:s4->cn;
+    c0->c;
+    ci->s;
+    cn->c;
+    c->exit;
+}

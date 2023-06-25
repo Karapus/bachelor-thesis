@@ -1,0 +1,121 @@
+digraph "S_regmatch_draft' function visualization" {
+    node [shape=record]
+    entry [label="{
+        entry:\l
+        bool matches = false;\l
+        int la_start, la_depth = 0, match_length = 0, i = 0, j = 0;\l
+    }"]
+    body [label="{
+        reenter_switch:\l
+        bool current_matches;\l
+        switch (pattern[j]) |
+        {<s0>def|<s1>END|<s2>LA_SP|<s3>LA_ST}}"]
+    case_END [label="{
+        case END:\l
+        if (matches)|
+        {<s0>T|<s1>F}
+
+    }"]
+    case_END_then [label="{
+        END_then:\l
+        *len = match_length;\l
+    }"]
+    case_END_always [label="{
+        END_exit:\l
+        return matches;\l
+    }"]
+    case_LA_START [label="{
+        case LA_START:\l
+        ++j;\l
+        if (la_depth++ == 0)|
+        {<s0>T|<s1>F}
+    }"]
+    case_LA_START_then [label="{
+        LA_START_then:\l
+        use_on_la_start(string[i]);\l
+        la_start = i;\l
+    }"]
+    case_LA_STOP [label="{
+        case LA_STOP:\l
+        ++j;\l
+        if (--la_depth == 0)|
+        {<s0>T|<s1>F}
+    }"]
+    case_LA_STOP_then [label="{
+        LA_STOP_then:\l
+        use_on_la_stop(string[i]);\l
+        match_length -= i - la_start
+    }"]
+
+    default [label="{
+        default:\l
+        ...\l
+    }"]
+/*
+    default [label="{
+        default:\l
+        current_matches = pattern[j] == string[i];\l
+        if (!matches && current_matches)|
+        {<s0>T|<s1>F}
+    }"]
+    default_then [label="{
+        *pos = i;\l
+    }"]
+    default_else [label="{
+        if (matches && !current_matches)|
+        {<s0>T|<s1>F}
+    }"]
+    default_else_then [label="{
+            match_length = 0;\l
+            la_depth = 0;\l
+            j = 0;\l
+    }"]
+    default_always [label="{
+        matches = current_matches;\l
+        if (matches)|
+        {<s0>T|<s1>F}
+    }"]
+    default_always_then [label="{
+            ++j;\l
+            ++match_length;\l
+    }"]
+*/
+    loop_cond [label="{
+        while(string[i++])|
+        {<s0>T|<s1>F}
+    }"]
+    exit [label="{
+        exit:\l
+        return false;\l
+    }"]
+
+    entry->body;
+
+    body:s0->default;
+    body:s1->case_END;
+    body:s2->case_LA_STOP;
+    body:s3->case_LA_START;
+
+    case_LA_START:s0->case_LA_START_then;
+    case_LA_START:s1->body;
+    case_LA_START_then->body;
+
+    case_LA_STOP:s0->case_LA_STOP_then;
+    case_LA_STOP:s1->body;
+    case_LA_STOP_then->body;
+
+    case_END:s0->case_END_then->case_END_always;
+    case_END:s1->case_END_always;
+
+    default->loop_cond;
+/*
+    default:s0->default_then->default_always;
+    default:s1->default_else;
+    default_else:s0->default_else_then->default_always;
+    default_else:s1->default_always;
+    default_always:s0->default_always_then->loop_cond;
+    default_always:s1->loop_cond;
+*/
+    loop_cond:s0->body;
+    loop_cond:s1->exit;
+}
