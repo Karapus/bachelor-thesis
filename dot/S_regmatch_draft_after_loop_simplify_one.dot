@@ -1,41 +1,41 @@
 digraph "CFG for 'S_regmatch_draft' function" {
 
-	Node0x55c848be2960 [shape=record, style=filled, label="{entry}"];
+	Node0x55c848be2960 [shape=record, label="{entry}"];
 	Node0x55c848be2960 -> Node0x55c848be2a10;
-	Node0x55c848be2a10 [shape=record, style=filled, label="{do.body}"];
+	Node0x55c848be2a10 [shape=record, label="{do.body}"];
 	Node0x55c848be2a10 -> Node0x55c848be40f0;
-	Node0x55c848be40f0 [shape=record, style=filled, label="{loop2.header}"];
+	Node0x55c848be40f0 [shape=record, label="{loop2.header}"];
 	Node0x55c848be40f0 -> Node0x55c848be4870;
-	Node0x55c848be4870 [shape=record, style=filled, label="{reenter_switch|{<s0>def|<s1>END|<s2>LA_SP|<s3>LA_ST}}"];
+	Node0x55c848be4870 [shape=record, label="{reenter_switch|{<s0>def|<s1>END|<s2>LA_SP|<s3>LA_ST}}"];
 	Node0x55c848be4870:s0 -> Node0x55c848be5e70;
 	Node0x55c848be4870:s1 -> Node0x55c848be5f50;
 	Node0x55c848be4870:s2 -> Node0x55c848be6150;
 	Node0x55c848be4870:s3 -> Node0x55c848be6050;
-	Node0x55c848be5f50 [shape=record, style=filled, label="{case END|{<s0>T|<s1>F}}"];
+	Node0x55c848be5f50 [shape=record, label="{case END|{<s0>T|<s1>F}}"];
 	Node0x55c848be5f50:s0 -> Node0x55c848be6270;
 	Node0x55c848be5f50:s1 -> Node0x55c848be62e0;
-	Node0x55c848be6270 [shape=record, style=filled, label="{END_then}"];
+	Node0x55c848be6270 [shape=record, label="{END_then}"];
 	Node0x55c848be6270 -> Node0x55c848be62e0;
-	Node0x55c848be6050 [shape=record, style=filled, label="{case LA_START|{<s0>T|<s1>F}}"];
+	Node0x55c848be6050 [shape=record, label="{case LA_START|{<s0>T|<s1>F}}"];
 	Node0x55c848be6050:s0 -> Node0x55c848be68b0;
 	Node0x55c848be6050:s1 -> Node0x55c848be42c0;
-	Node0x55c848be68b0 [shape=record, style=filled, label="{LA_START_then}"];
+	Node0x55c848be68b0 [shape=record, label="{LA_START_then}"];
 	Node0x55c848be68b0 -> Node0x55c848be42c0;
-	Node0x55c848be42c0 [shape=record, style=filled, label="{LA_START_if.end}"];
+	Node0x55c848be42c0 [shape=record, label="{LA_START_if.end}"];
 	Node0x55c848be42c0 -> Node0x55c848be40f0;
-	Node0x55c848be6150 [shape=record, style=filled, label="{case LA_STOP|{<s0>T|<s1>F}}"];
+	Node0x55c848be6150 [shape=record, label="{case LA_STOP|{<s0>T|<s1>F}}"];
 	Node0x55c848be6150:s0 -> Node0x55c848be7e90;
 	Node0x55c848be6150:s1 -> Node0x55c848be49e0;
-	Node0x55c848be7e90 [shape=record, style=filled, label="{LA_STOP_then}"];
+	Node0x55c848be7e90 [shape=record, label="{LA_STOP_then}"];
 	Node0x55c848be7e90 -> Node0x55c848be49e0;
-	Node0x55c848be49e0 [shape=record, style=filled, label="{LA_STOP_if.end}"];
+	Node0x55c848be49e0 [shape=record, label="{LA_STOP_if.end}"];
 	Node0x55c848be49e0 -> Node0x55c848be4870;
-	Node0x55c848be5e70 [shape=record, style=filled, label="{default}"];
+	Node0x55c848be5e70 [shape=record, label="{default}"];
     Node0x55c848be5e70 -> Node0x55c848be3120 
-	Node0x55c848be3120 [shape=record, style=filled, label="{while|{<s0>T|<s1>F}}"];
+	Node0x55c848be3120 [shape=record, label="{while|{<s0>T|<s1>F}}"];
 	Node0x55c848be3120:s1 -> Node0x55c848bea260;
 	Node0x55c848be3120:s0 -> Node0x55c848be2a10;
-	Node0x55c848bea260 [shape=record, style=filled, label="{cleanup.loopexit}"];
+	Node0x55c848bea260 [shape=record, label="{cleanup.loopexit}"];
 	Node0x55c848bea260 -> Node0x55c848be62e0;
-	Node0x55c848be62e0 [shape=record, style=filled, label="{cleanup}"];
+	Node0x55c848be62e0 [shape=record, label="{cleanup}"];
 }
