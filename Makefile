@@ -6,9 +6,6 @@ thesis:
 	pdflatex main.tex
 	pdflatex main.tex
 
-presentation:
-	pdflatex presentation.tex
-
 .PHONY=clean
 dot_sources= ${shell ls dot}
 
