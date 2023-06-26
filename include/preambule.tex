@@ -13,26 +13,17 @@
 
 %% Номера формул
 \mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
-%\usepackage{leqno}               % Немуреация формул слева
 
 %% Шрифты
-\usepackage{euscript}	 % Шрифт Евклид
-\usepackage{mathrsfs}    % Красивый матшрифт
 
 %% Поля (геометрия страницы)
-\usepackage[left=3cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
-
-%% Русские списки
-\usepackage{enumitem}
-\makeatletter
-\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
-\makeatother
+\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 %%% Работа с картинками
 \usepackage{caption}
 \captionsetup{justification=centering} % центрирование подписей к картинкам
 \usepackage{graphicx}                  % Для вставки рисунков
-\graphicspath{{images/}{images2/}}     % папки с картинками
+\graphicspath{{images/}}               % папки с картинками
 \setlength\fboxsep{3pt}                % Отступ рамки \fbox{} от рисунка
 \setlength\fboxrule{1pt}               % Толщина линий рамки \fbox{}
 \usepackage{wrapfig}                   % Обтекание рисунков и таблиц текстом
@@ -50,20 +41,14 @@
 \usepackage{multirow}
 
 %% TikZ
-\usepackage{tikz}
-\usetikzlibrary{graphs,graphs.standard}
-
-%% Верхний колонтитул
-\usepackage{fancyhdr}
-%%\pagestyle{fancy}
+%\usepackage{tikz}
+%\usetikzlibrary{graphs,graphs.standard}
 
 %% Перенос знаков в формулах (по Львовскому)
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
 
 %% дополнения
 \usepackage{float}   % Добавляет возможность работы с командой [H] которая улучшает расположение на странице
-\usepackage{gensymb} % Красивые градусы
-\usepackage{caption} % Пакет для подписей к рисункам, в частности, для работы caption*
 
 % подключаем hyperref (для ссылок внутри  pdf)
 \usepackage[unicode, pdftex]{hyperref}
@@ -84,7 +69,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 basicstyle=\footnotesize\ttfamily,% the size of the fonts that are used for the code
 breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
 breaklines=true,                 % sets automatic line breaking
-captionpos=b,                    % sets the caption-position to bottom
+captionpos=t,
 commentstyle=\color{mygreen},    % comment style
 deletekeywords={...},            % if you want to delete keywords from the given language
 extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
@@ -103,5 +88,22 @@ showtabs=false,                  % show tabs within strings adding particular un
 stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
 stringstyle=\color{mymauve},     % string literal style
 tabsize=2,                       % sets default tabsize to 2 spaces
-title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+  {\centering\large\bfseries}{\chaptertitlename\ \thechapter.\ }{10pt}{}
+
+\titleformat*{\section}{\filcenter\normalfont\bfseries}
+\titleformat*{\subsection}{\filcenter\normalfont\bfseries}
+\titleformat*{\subsubsection}{\filcenter\normalfont\bfseries}
+\titleformat*{\paragraph}{\filcenter\normalfont\bfseries}
+\titleformat*{\subparagraph}{\filcenter\normalfont\bfseries}
+
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+
+\usepackage{caption}
+\captionsetup[figure]{name={Рисунок}, labelsep=endash}
+\captionsetup[table]{justification=raggedright, singlelinecheck=off, name={Таблица}, labelsep=endash}
