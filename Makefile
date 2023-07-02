@@ -1,4 +1,4 @@
-all: thesis presentation
+all: thesis
 
 thesis:
 	pdflatex main.tex
