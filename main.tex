@@ -8,18 +8,20 @@
 \begin{document}
     %% титульник
     \input{include/title.tex}
+    \newpage
     %% аннотоция
     \input{parts/Annotation.tex}
     %содержание
+    \setcounter{page}{3}
     \tableofcontents{}
     \newpage
 
-    \input{parts/Chapter0.tex} %% Введение
-    \input{parts/Chapter1.tex} %% Постановка задачи
-    \input{parts/Chapter2.tex} %% Обзор существующих решений
-    \input{parts/Chapter3.tex} %% Исследование и построение решения задачи
-    \input{parts/Chapter4.tex} %% Описание практической части
-    \input{parts/Chapter5.tex} %% Заключение
+    \input{parts/Introduction.tex} %% Введение
+    \input{parts/Chapter1.tex}     %% Основные сведения из теории компиляторов
+    \input{parts/Chapter2.tex}     %% Обзор существующих решений
+    \input{parts/Chapter3.tex}     %% Исследование и построение решения задачи
+    \input{parts/Chapter4.tex}     %% Описание практической части
+    \input{parts/Summary.tex}      %% Заключение
 
     %% Don't change the following lines
     \nocite{*}

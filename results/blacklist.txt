@@ -1,0 +1,3 @@
+test-suite :: External/SPEC/CINT2017rate/999.specrand_ir/999.specrand_ir.test
+test-suite :: External/SPEC/CINT2017rate/557.xz_r/557.xz_r.test
+test-suite :: External/SPEC/CINT2017rate/520.omnetpp_r/520.omnetpp_r.test

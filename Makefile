@@ -1,12 +1,10 @@
-all: thesis presentation
+all: thesis
 
 thesis:
 	pdflatex main.tex
 	bibtex main
 	pdflatex main.tex
-
-presentation:
-	pdflatex presentation.tex
+	pdflatex main.tex
 
 .PHONY=clean
 dot_sources= ${shell ls dot}
